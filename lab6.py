@@ -51,6 +51,10 @@ def selection_sort_books(books: list[data.Book])->list[data.Book]:
         books[j+1] = temp
     return books
 # Part 2
+#input a word in string form
+#output a string with flipped case
+#for each character check if it is upper or lowercase, if it has case set that letter for the opposite of whatever it is
+#append each character to a new list, then return that list as joined with no spaces inbetween the join
 def swap_case(word: str)->str:
     temp = list(word)
     new = []
@@ -62,6 +66,11 @@ def swap_case(word: str)->str:
         new.append(i)
     return ''.join(new)
 # Part 3
+#input is a str, a character, and another character
+#output is the original string but with the input character swapped to the second input character
+#for each character in the sentence if that character is the same as the input character swap it to the second character
+#add that character, swapped or not, to a new list
+#join that list with no space in between and return it
 def str_translate(sentence: str,word1: str,word2:str)->str:
     temp = list(sentence)
     new = []
@@ -72,6 +81,10 @@ def str_translate(sentence: str,word1: str,word2:str)->str:
     return ''.join(new)
 
 # Part 4
+#input is a string with multiple words
+#output is a dictionary with words and how many of that word appear in the input string
+#for each word check against each word and if they are the same word add to a counter
+#then add to a dictionary the word and the count of the counter
 def histogram(sentence:str)->dict:
     splitup = sentence.split()
     dictionary = {}
