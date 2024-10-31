@@ -64,18 +64,78 @@ class TestCases(unittest.TestCase):
 
 
     # Part 1
+    def test_selection_sort_books_1(self):
+        input1 = [
+            data.Book(["Bob","Jeff","Rick"], "Helping Christians"),
+            data.Book(["Sam","Dylan","Rick"],"Helping Children"),
+            data.Book(["Pluto","Scooby"],"Helping Christmas Elves")]
+        result = lab6.selection_sort_books(input1)
+        expected = [
+                data.Book(["Sam", "Dylan", "Rick"], "Helping Children"),
+                data.Book(["Bob","Jeff","Rick"],"Helping Christians") ,
+                data.Book(["Pluto","Scooby"], "Helping Christmas Elves")]
+        self.assertEqual(expected, result)
 
-
+    def test_selection_sort_books_2(self):
+        input1 = [
+            data.Book(["Bob", "Jeff", "Rick"], "Winds of time"),
+            data.Book(["Sam", "Dylan", "Rick"], "Changing Worlds"),
+            data.Book(["Pluto", "Scooby"], "Mystery Land")]
+        result = lab6.selection_sort_books(input1)
+        expected = [
+            data.Book(["Sam", "Dylan", "Rick"], "Changing Worlds"),
+            data.Book(["Pluto", "Scooby"], "Mystery Land"),
+            data.Book(["Bob", "Jeff", "Rick"], "Winds of time")]
+        self.assertEqual(expected, result)
     # Part 2
+    def test_swap_case_1(self):
+        input = "HelLo ! WoRld"
+        result = lab6.swap_case(input)
+        expected = "hELlO ! wOrLD"
+        self.assertEqual(expected,result)
 
-
+    def test_swap_case_2(self):
+        input = "こにちわ、mY nAME iS nick! はじめまして。"
+        result = lab6.swap_case(input)
+        expected = "こにちわ、My Name Is NICK! はじめまして。"
+        self.assertEqual(expected, result)
     # Part 3
+    def test_str_translate_1(self):
+        input = "Hello World, the world is gone forever."
+        input2 = "o"
+        input3 = "x"
+        result = lab6.str_translate(input,input2,input3)
+        expected = "Hellx Wxrld, the wxrld is gxne fxrever."
+        self.assertEqual(expected,result)
 
-
+    def test_str_translate_1(self):
+        input = "xWaxtxcxhx xOxuxtx"
+        input2 = "x"
+        input3 = ""
+        result = lab6.str_translate(input, input2, input3)
+        expected = "Watch Out"
+        self.assertEqual(expected, result)
     # Part 4
+    def test_histogram_1(self):
+        input = "so math is so so math"
+        result = lab6.histogram(input)
+        expected = {
+            "math": 2,
+            "is": 1,
+            "so": 3
+        }
+        self.assertEqual(expected,result)
 
-
-
+    def test_histogram_2(self):
+        input = "woah woah woah man what like what woah"
+        result = lab6.histogram(input)
+        expected = {
+            "woah": 4,
+            "man": 1,
+            "what": 2,
+            "like": 1
+        }
+        self.assertEqual(expected, result)
 
 
 if __name__ == '__main__':
