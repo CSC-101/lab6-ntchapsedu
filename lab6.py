@@ -37,12 +37,48 @@ def selection_sort(values:list[int]) -> None:
 
 
 # Part 1
-
-
+#input is a list of books
+#output is a list of books in title alphabetical order
+#for each book compare it to the book to the left of it and if it's title is before then swap
+#continue swapping until it's not less than the next title to the left
+def selection_sort_books(books: list[data.Book])->list[data.Book]:
+    for i in range(len(books)):
+        temp = books[i]
+        j = i-1
+        while j>=0 and temp.title < books[j].title:
+            books[j+1] = books[j]
+            j -= 1
+        books[j+1] = temp
+    return books
 # Part 2
-
-
+def swap_case(word: str)->str:
+    temp = list(word)
+    new = []
+    for i in temp:
+        if i.islower():
+            i = i.upper()
+        elif i.isupper():
+            i = i.lower()
+        new.append(i)
+    return ''.join(new)
 # Part 3
-
+def str_translate(sentence: str,word1: str,word2:str)->str:
+    temp = list(sentence)
+    new = []
+    for i in temp:
+        if i == word1:
+            i = word2
+        new.append(i)
+    return ''.join(new)
 
 # Part 4
+def histogram(sentence:str)->dict:
+    splitup = sentence.split()
+    dictionary = {}
+    for i in splitup:
+        temp = 0
+        for j in splitup:
+            if i == j:
+                temp += 1
+        dictionary[i] = temp
+    return dictionary
